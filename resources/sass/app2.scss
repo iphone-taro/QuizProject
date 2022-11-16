@@ -1,0 +1,66 @@
+$scoreWidth : 60px;
+$scoreHeight : 90px;
+
+.score_num {
+	/* display: inline-block; */
+	/* content: ""; */
+	width: $scoreWidth;
+	height: $scoreHeight;
+    display: inline-block;
+    /* cursor:pointer; */
+	background-image: url("../../public/app/img/score_num.png");
+	// background-image: url("../img/score_num.png");
+	background-size: ($scoreWidth * 6) ($scoreHeight * 2);
+	background-repeat: no-repeat;
+	/* 1200 600  200 300 */
+}
+.score_num_0 {background-position : ($scoreWidth * -0) ($scoreHeight * -0)}
+.score_num_1 {background-position : ($scoreWidth * -1) ($scoreHeight * -0)}
+.score_num_2 {background-position : ($scoreWidth * -2) ($scoreHeight * -0)}
+.score_num_3 {background-position : ($scoreWidth * -3) ($scoreHeight * -0)}
+.score_num_4 {background-position : ($scoreWidth * -4) ($scoreHeight * -0)}
+.score_num_5 {background-position : ($scoreWidth * -5) ($scoreHeight * -0)}
+.score_num_6 {background-position : ($scoreWidth * -0) ($scoreHeight * -1)}
+.score_num_7 {background-position : ($scoreWidth * -1) ($scoreHeight * -1)}
+.score_num_8 {background-position : ($scoreWidth * -2) ($scoreHeight * -1)}
+.score_num_9 {background-position : ($scoreWidth * -3) ($scoreHeight * -1)}
+.score_num_none {background-position : ($scoreWidth * -4) ($scoreHeight * -1)}
+.score_num_ten {background-position : ($scoreWidth * -5) ($scoreHeight * -1)}
+
+$playCharaWidth:60vw;
+$playCharaHeight:$playCharaWidth * 0.2;
+.play_chara {
+	/* display: inline-block; */
+	/* content: ""; */
+	margin-bottom:0px;
+	width: $playCharaWidth;
+	height: $playCharaHeight;
+    display: inline-block;
+    /* cursor:pointer; */
+	background-image: url("../../public/app/img/play_chara.png");
+	// background-image: url("../img/score_num.png");
+	background-size: ($playCharaWidth) ($playCharaHeight * 5);
+	background-repeat: no-repeat;
+	/* 1200 600  200 300 */
+}
+.play_chara_init {background-position : ($playCharaWidth * -0) ($playCharaHeight * -0)}
+.play_chara_normal {background-position : ($playCharaWidth * -0) ($playCharaHeight * -1)}
+.play_chara_correct {background-position : ($playCharaWidth * -0) ($playCharaHeight * -2)}
+.play_chara_incorrect {background-position : ($playCharaWidth * -0) ($playCharaHeight * -3)}
+.play_chara_result {background-position : ($playCharaWidth * -0) ($playCharaHeight * -4)}
+
+
+.backgroundBase {
+	background-image: url("../../public/app/img/bg_normal.png");
+	background-repeat: repeat;
+}
+
+.backgroundCorrect {
+	background-image: url("../../public/app/img/bg_correct.png");
+	background-repeat: repeat;
+}
+
+.backgroundIncorrect {
+	background-image: url("../../public/app/img/bg_incorrect.png");
+	background-repeat: repeat;
+}

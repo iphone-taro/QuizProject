@@ -1,0 +1,109 @@
+.score_num {
+  /* display: inline-block; */
+  /* content: ""; */
+  width: 60px;
+  height: 90px;
+  display: inline-block;
+  /* cursor:pointer; */
+  background-image: url(/images/score_num.png?f452208645c9706cc9f48e2b18e17dbe);
+  background-size: 360px 180px;
+  background-repeat: no-repeat;
+  /* 1200 600  200 300 */
+}
+
+.score_num_0 {
+  background-position: 0px 0px;
+}
+
+.score_num_1 {
+  background-position: -60px 0px;
+}
+
+.score_num_2 {
+  background-position: -120px 0px;
+}
+
+.score_num_3 {
+  background-position: -180px 0px;
+}
+
+.score_num_4 {
+  background-position: -240px 0px;
+}
+
+.score_num_5 {
+  background-position: -300px 0px;
+}
+
+.score_num_6 {
+  background-position: 0px -90px;
+}
+
+.score_num_7 {
+  background-position: -60px -90px;
+}
+
+.score_num_8 {
+  background-position: -120px -90px;
+}
+
+.score_num_9 {
+  background-position: -180px -90px;
+}
+
+.score_num_none {
+  background-position: -240px -90px;
+}
+
+.score_num_ten {
+  background-position: -300px -90px;
+}
+
+.play_chara {
+  /* display: inline-block; */
+  /* content: ""; */
+  margin-bottom: 0px;
+  width: 60vw;
+  height: 12vw;
+  display: inline-block;
+  /* cursor:pointer; */
+  background-image: url(/images/play_chara.png?643d50b91a92622dd890639a30bce66a);
+  background-size: 60vw 60vw;
+  background-repeat: no-repeat;
+  /* 1200 600  200 300 */
+}
+
+.play_chara_init {
+  background-position: 0vw 0vw;
+}
+
+.play_chara_normal {
+  background-position: 0vw -12vw;
+}
+
+.play_chara_correct {
+  background-position: 0vw -24vw;
+}
+
+.play_chara_incorrect {
+  background-position: 0vw -36vw;
+}
+
+.play_chara_result {
+  background-position: 0vw -48vw;
+}
+
+.backgroundBase {
+  background-image: url(/images/bg_normal.png?aad5f73c5db7c1091491a529369d7182);
+  background-repeat: repeat;
+}
+
+.backgroundCorrect {
+  background-image: url(/images/bg_correct.png?9816787e41a9885104f8c500e39819d7);
+  background-repeat: repeat;
+}
+
+.backgroundIncorrect {
+  background-image: url(/images/bg_incorrect.png?cf5ec576b2abb059e8924e3aa0294f8e);
+  background-repeat: repeat;
+}

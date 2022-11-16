@@ -1,0 +1,412 @@
+.moku {
+    border: 50px solid #09f;
+    border-image-source: url(../img/test2.png);
+    border-image-slice: 85 95 95 85 fill;
+    border-image-repeat: round;
+}
+
+.moku > div {
+    margin:-25px;
+}
+
+.moku2 {
+    border: 50px solid #09f;
+    border-image-source: url(../img/test.png);
+    border-image-slice: 85 95 95 85 fill;
+    border-image-repeat: round;
+}
+
+.moku2 > div {
+    margin:-25px;
+}
+
+input {
+    color : #808080 !important;
+}
+
+textarea {
+    color :#808080;
+}
+
+.bgColorBase {
+    background-color:#FFDDCE;
+}
+
+.bgColorA {
+    background-color:#FFFFFF;
+}
+
+.fc {
+    color : #808080;
+}
+
+/* 共通 */
+body {
+    color : #808080 !important;
+    border-color : #808080 !important;
+}
+
+.grayBar {
+    background-color:#303432;
+    height:2px;
+    opacity:0.1;
+    margin:16px 0 13px 0;
+}
+
+.bo2 {
+    border : 2px solid #808080;
+}
+.bo3 {
+    border : 3px solid #808080;
+}
+
+.form-check-input:checked {
+    background-color: #ff7979;
+    border-color: #ff7979;
+}
+
+.sp_line_ss {
+    /* border : 1px solid red; */
+    height : 5px;
+}
+
+.sp_line_s {
+    /* border : 1px solid red; */
+    height : 8px;
+}
+
+.sp_line_m {
+    /* border : 1px solid blue; */
+    height : 13px;
+}
+
+.sp_line_l {
+    /* border : 1px solid green; */
+    height : 20px;
+}
+
+.sp_line_xl {
+    /* border : 1px solid green; */
+    height : 30px;
+}
+
+.font_xl {
+    font-size: 30px;
+    margin:0px
+}
+
+.font_l {
+    font-size: 18px;
+    margin:0px
+}
+
+.font_m {
+    font-size: 14px;
+    margin:0px
+}
+
+.font_s {
+    font-size: 10px;
+    margin:0px
+}
+
+.p18 {
+    font-size: 18px;
+    margin:0px
+}
+
+.p16 {
+    font-size: 16px;
+    margin:0px
+}
+
+.p14 {
+    font-size: 14px;
+    margin:0px
+}
+
+.p12 {
+    font-size: 12px;
+    margin:0px
+}
+
+.p10 {
+    font-size: 10px;
+    margin:0px
+}
+
+.p9 {
+    font-size: 9px;
+    margin:0px
+}
+
+.edit_frame {
+    width:95%;
+    border-radius: 10px;
+    border: 2px solid #808080;
+    margin:auto;
+    text-align:left;
+    background-color:#ffffff;
+    padding:15px;
+}
+
+.choice_base {
+    border-color: #808080;
+    border-radius: 10px;
+    background-color: white;
+    padding:10px;
+    text-align:left;
+}
+
+.choice_select {
+    border-color: #7ed6df;
+}
+
+.choice_correct {
+    border-color: #ff7979;
+}
+
+/* * {
+	border: 0.1px solid;
+    border-color: #ff0000;
+} */
+
+.modalBg {
+    overflow-y: hidden;
+}
+
+.icon {
+    border-radius: 50%;
+    background-position: center center;
+}
+
+.errMsg {
+    color : red;
+}
+
+.link {
+    cursor: pointer;
+	color: #9BBFFF;
+}
+
+.link_red {
+    cursor: pointer;
+	color: #FF9B9B;
+}
+
+.btnBase {
+    /* display: block; */
+	/* padding: 5px 10px 5px 10px; */
+	text-decoration: none;
+	color: #808080;
+	border-radius: 6px;
+	border: solid 2px #808080;
+	background-color: #fff;
+    padding: 5px 10px;
+    cursor:pointer;
+}
+
+.btnBase > span {
+    margin: 20px 10px 20px 10px;
+}
+.btnBase > p {
+    margin: 0px;
+}
+
+.btnBase:hover {
+	background-color: #FEFFBD;
+}
+
+.btnNegative {
+    background-color: #cacaca;
+}
+
+#overlay{
+    /*要素を重ねた時の順番*/
+    z-index:9999;
+
+    /*画面全体を覆う設定*/
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    /* background-color:rgba(255, 255, 255, 0.5); */
+    background-color:rgba(0, 0, 0, 0.5);
+
+    /*画面の中央に要素を表示させる設定*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#content{
+    z-index:9998;
+    width:90%;
+    padding: 1em;
+    /* background:#fff; */
+    border-radius: 6px;
+}
+
+.modalBg {
+    overflow-y: hidden;
+}
+  
+.bar {
+    margin:0px auto 5px;
+    height: 2px;
+    background-color:white;
+    border:none;
+}
+
+.search_box {
+    display: inline-block; /* なくても大丈夫だけど、念の為 */
+    position: relative;    /* 基準値とする */
+    padding-bottom:10px;
+}
+
+.search_box::before {
+    content: "";           /* 疑似要素に必須 */
+    width: 16px;           /* アイコンの横幅 */
+    height: 16px;          /* アイコンの高さ */
+    background: url(../img/icon_search.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
+    display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+    position: absolute;    /* 相対位置に指定 */
+    top: 8px;              /* アイコンの位置。微調整してね */
+    left: 5px;             /* アイコンの位置。微調整してね */
+}
+
+.search_box input, .search_box input:focus {
+    color: #ffffff;
+    background-color: #323234;
+    padding: 5px 0px 5px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+}
+
+.search_box input::placeholder {
+    color: rgb(166, 166, 166);
+}
+
+
+/* .header {
+    height:70px;
+} */
+
+.dispPcB {
+    display:none;
+}
+
+.dispPcI {
+    display:none;
+}
+
+.lastIcon {
+    width:70%;
+}
+
+.welcomeMsg {
+    font-size:14px;
+}
+
+a {
+    text-decoration:none; 
+}
+
+.viewCount {
+    display:block;
+    background:#323234;
+    padding:0.2em 0.5em;
+    border-radius:2px;
+    color:#C2C2C2
+}
+
+.cusButton {
+    width: auto;
+    padding:0;
+    margin:0;
+    background:none;
+    border:0;
+    font-size:0;
+    line-height:0;
+    overflow:visible;
+    cursor:pointer;
+}
+.showMore {
+    font-size: 1.5rem;
+    padding: 0px 10px 5px 10px;
+    border-bottom: solid 2px #ffffff;
+
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.viewTitle {
+    font-size:1.3rem;
+}
+
+.iframe {
+    width : 100%;
+    height : 61vw;
+}
+
+.ad_sp {
+    display:block;
+}
+.ad {
+    display:none;
+}
+
+.gameIcon {
+    width: 40vw;
+}
+
+.title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modeBtn {
+    width:100%;
+}
+
+.mode1Btn {
+    width : 100%;
+}
+
+/* .rootArea {
+    width : 100%
+} */
+
+.mainArea {
+    width : 100%
+}
+
+@media screen and (min-width : 576px) {
+    
+}
+
+@media screen and (min-width : 768px) {
+    #content{
+        width:60%;
+    }
+
+    .mainArea {
+        width : 70%
+    }
+}
+
+@media screen and (min-width : 992px) {
+    /* .rootArea {
+        width: 80%
+    } */
+}
+
+@media screen and (min-width : 1400px) {
+    /* .rootArea {
+        width : 1120px;
+    } */
+}
