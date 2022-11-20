@@ -45,11 +45,12 @@ class QuizController extends Controller {
                     if (isset($_GET["result"])) {
                         //結果パラメータあり
                         $result = $_GET["result"];
-
+                        
                         //結果画像データがあるか
                         if (file_exists('../storage/app/public/card/card_' . $quizId . '_' . $result . '.jpg')) {
                             //結果画像ある
                             $card = 'card_' . $quizId . '_' . $result . '.jpg';
+                            $path = $path . "?" . $result;
                         }
                     }
                 }
