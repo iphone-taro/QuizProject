@@ -20,49 +20,8 @@
     margin:-25px;
 }
 
-input {
-    color : #808080 !important;
-}
-
-textarea {
-    color :#808080;
-}
-
-.bgColorBase {
-    background-color:#FFDDCE;
-}
-
-.bgColorA {
-    background-color:#FFFFFF;
-}
-
-.fc {
-    color : #808080;
-}
-
-/* 共通 */
-body {
-    color : #808080 !important;
-    border-color : #808080 !important;
-}
-
-.grayBar {
-    background-color:#303432;
-    height:2px;
-    opacity:0.1;
-    margin:16px 0 13px 0;
-}
-
-.bo2 {
-    border : 2px solid #808080;
-}
-.bo3 {
-    border : 3px solid #808080;
-}
-
-.form-check-input:checked {
-    background-color: #ff7979;
-    border-color: #ff7979;
+.shadow {
+    box-shadow: 3px 3px 0px 0 rgba(0, 0, 0, .2) !important;
 }
 
 .sp_line_ss {
@@ -140,37 +99,6 @@ body {
     margin:0px
 }
 
-.edit_frame {
-    width:95%;
-    border-radius: 10px;
-    border: 2px solid #808080;
-    margin:auto;
-    text-align:left;
-    background-color:#ffffff;
-    padding:15px;
-}
-
-.choice_base {
-    border-color: #808080;
-    border-radius: 10px;
-    background-color: white;
-    padding:10px;
-    text-align:left;
-}
-
-.choice_select {
-    border-color: #7ed6df;
-}
-
-.choice_correct {
-    border-color: #ff7979;
-}
-
-/* * {
-	border: 0.1px solid;
-    border-color: #ff0000;
-} */
-
 .modalBg {
     overflow-y: hidden;
 }
@@ -179,117 +107,6 @@ body {
     border-radius: 50%;
     background-position: center center;
 }
-
-.errMsg {
-    color : red;
-}
-
-.link {
-    cursor: pointer;
-	color: #9BBFFF;
-}
-
-.link_red {
-    cursor: pointer;
-	color: #FF9B9B;
-}
-
-.btnBase {
-    /* display: block; */
-	/* padding: 5px 10px 5px 10px; */
-	text-decoration: none;
-	color: #808080;
-	border-radius: 6px;
-	border: solid 2px #808080;
-	background-color: #fff;
-    padding: 5px 10px;
-    cursor:pointer;
-}
-
-.btnBase > span {
-    margin: 20px 10px 20px 10px;
-}
-.btnBase > p {
-    margin: 0px;
-}
-
-.btnBase:hover {
-	background-color: #FEFFBD;
-}
-
-.btnNegative {
-    background-color: #cacaca;
-}
-
-#overlay{
-    /*要素を重ねた時の順番*/
-    z-index:9999;
-
-    /*画面全体を覆う設定*/
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    /* background-color:rgba(255, 255, 255, 0.5); */
-    background-color:rgba(0, 0, 0, 0.5);
-
-    /*画面の中央に要素を表示させる設定*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#content{
-    z-index:9998;
-    width:90%;
-    padding: 1em;
-    /* background:#fff; */
-    border-radius: 6px;
-}
-
-.modalBg {
-    overflow-y: hidden;
-}
-  
-.bar {
-    margin:0px auto 5px;
-    height: 2px;
-    background-color:white;
-    border:none;
-}
-
-.search_box {
-    display: inline-block; /* なくても大丈夫だけど、念の為 */
-    position: relative;    /* 基準値とする */
-    padding-bottom:10px;
-}
-
-.search_box::before {
-    content: "";           /* 疑似要素に必須 */
-    width: 16px;           /* アイコンの横幅 */
-    height: 16px;          /* アイコンの高さ */
-    background: url(../img/icon_search.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
-    display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
-    position: absolute;    /* 相対位置に指定 */
-    top: 8px;              /* アイコンの位置。微調整してね */
-    left: 5px;             /* アイコンの位置。微調整してね */
-}
-
-.search_box input, .search_box input:focus {
-    color: #ffffff;
-    background-color: #323234;
-    padding: 5px 0px 5px 2em; /* アイコンを設置するため左の余白を多めに指定*/
-}
-
-.search_box input::placeholder {
-    color: rgb(166, 166, 166);
-}
-
-
-/* .header {
-    height:70px;
-} */
 
 .dispPcB {
     display:none;
@@ -382,20 +199,30 @@ a {
 } */
 
 .mainArea {
-    width : 100%
+    width : 100%;
+    margin: auto;
 }
 
+.modalWidth-A{
+    width:95%;
+}
+
+.modalWidth-B {
+    width: 95%;
+}
 @media screen and (min-width : 576px) {
-    
+    .modalWidth-B {
+        width: 500px;
+    }
 }
 
 @media screen and (min-width : 768px) {
-    #content{
-        width:60%;
+    .modalWidth-A{
+        width:650px;
     }
 
     .mainArea {
-        width : 70%
+        width : 720px
     }
 }
 

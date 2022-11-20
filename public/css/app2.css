@@ -1,3 +1,235 @@
+@charset "UTF-8";
+.bgColorHF {
+  background-color: #ffffff;
+}
+
+.bgColorBase {
+  background-color: #F6F6F6;
+}
+
+.bgColorMoku {
+  background-color: #ffffff;
+}
+
+.bgColorLine {
+  background-color: #B096F3;
+}
+
+.fc {
+  color: #808080;
+}
+
+.fc_white {
+  color: #ffffff;
+}
+
+input {
+  color: #808080 !important;
+}
+
+textarea {
+  color: #808080;
+}
+
+/* 共通 */
+body {
+  color: #808080 !important;
+  border-color: #808080 !important;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.grayBar {
+  background-color: #808080;
+  height: 2px;
+  opacity: 0.1;
+  margin: 16px 0 13px 0;
+}
+
+.bo2 {
+  border: 2px solid #808080;
+}
+
+.bo3 {
+  border: 3px solid #808080;
+}
+
+.form-check-input:checked {
+  background-color: #96C9F3;
+  border-color: #96C9F3;
+}
+
+.edit_frame {
+  width: 95%;
+  border-radius: 10px;
+  border: 2px solid #808080;
+  margin: auto;
+  text-align: left;
+  background-color: #ffffff;
+  padding: 15px;
+}
+
+.choice_base {
+  border-color: #808080;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.choice_normal {
+  border-color: #808080;
+}
+
+.choice_select {
+  border-color: #96C9F3;
+}
+
+.choice_correct {
+  border-color: #F39696;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #AFAFAF !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #AFAFAF !important;
+}
+
+:-ms-input-placeholder {
+  color: #AFAFAF !important;
+}
+
+.errMsg {
+  color: #F39696;
+  margin: 0 0;
+}
+
+.link {
+  cursor: pointer;
+  color: #B096F3;
+}
+
+.link_red {
+  cursor: pointer;
+  color: #F39696;
+}
+
+.btnBase {
+  /* display: block; */
+  /* padding: 5px 10px 5px 10px; */
+  text-decoration: none;
+  color: #B096F3;
+  border-radius: 6px;
+  border: solid 2px #B096F3;
+  background-color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+.btnBase > span {
+  margin: 20px 10px 20px 10px;
+}
+
+.btnBase > p {
+  margin: 0px;
+}
+
+.btnBase:active {
+  background-color: #FEFFBD;
+}
+
+.btnNegative {
+  border-color: #808080 !important;
+  background-color: #808080 !important;
+  color: #ffffff;
+}
+
+.btnGray {
+  border-color: #808080;
+  color: #808080;
+}
+
+#overlay {
+  /*要素を重ねた時の順番*/
+  z-index: 9999;
+  /*画面全体を覆う設定*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color:rgba(255, 255, 255, 0.5); */
+  background-color: rgba(0, 0, 0, 0.5);
+  /*画面の中央に要素を表示させる設定*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#content {
+  z-index: 9998;
+  padding: 1em;
+  /* background:#fff; */
+  border-radius: 6px;
+}
+
+.modalBg {
+  overflow-y: hidden;
+}
+
+.bar {
+  margin: 0px auto 5px;
+  height: 2px;
+  background-color: white;
+  border: none;
+}
+
+.search_box {
+  display: inline-block; /* なくても大丈夫だけど、念の為 */
+  position: relative; /* 基準値とする */
+  padding-bottom: 10px;
+}
+
+.search_box::before {
+  content: ""; /* 疑似要素に必須 */
+  width: 16px; /* アイコンの横幅 */
+  height: 16px; /* アイコンの高さ */
+  background: url(/images/icon_search.png?548e84ea7e89b719d07dee92a849d949) no-repeat center center/auto 100%; /* 背景にアイコン画像を配置 */
+  display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+  position: absolute; /* 相対位置に指定 */
+  top: 8px; /* アイコンの位置。微調整してね */
+  left: 5px; /* アイコンの位置。微調整してね */
+}
+
+.search_box input, .search_box input:focus {
+  color: #ffffff;
+  background-color: #323234;
+  padding: 5px 0px 5px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+}
+
+.search_box input::-moz-placeholder {
+  color: rgb(166, 166, 166);
+}
+
+.search_box input::placeholder {
+  color: rgb(166, 166, 166);
+}
+
 .score_num {
   /* display: inline-block; */
   /* content: ""; */

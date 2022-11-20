@@ -25,7 +25,7 @@ class QuizController extends Controller {
     public function snsQuiz(Request $req) {
 
         $path = "/#/";
-        $card = "card_base";
+        $card = "card_base.png";
 
         if (isset($_GET["quizId"])) {
             //パラメータあり
@@ -49,16 +49,8 @@ class QuizController extends Controller {
                         //結果画像データがあるか
                         if (file_exists('../storage/app/public/card/card_' . $quizId . '_' . $result . '.jpg')) {
                             //結果画像ある
-                            $card = 'card_' . $quizId . '_' . $result;
-                        } else if (file_exists('../storage/app/public/card/card_' . $quizId . '.jpg')) {
-                            //結果画像ない
-                            //クイズ画像データがある
-                            $card = "card_" . $quizId;
+                            $card = 'card_' . $quizId . '_' . $result . '.jpg';
                         }
-                    } else if (file_exists('../storage/app/public/card/card_' . $quizId . '.jpg')) {
-                        //結果パラメータなし
-                        //クイズ画像データがある
-                        $card = "card_" . $quizId;
                     }
                 }
             }
@@ -135,16 +127,16 @@ class QuizController extends Controller {
                 $validatedData = $request->validate([
                     'quiz_id' => 'required|string',
                     'quiz_name' => 'string|max:30',
-                    'quiz_sub_name' => 'string|max:30',
+                    'quiz_sub_name' => 'string|max:20',
                     'description' => 'string|max:100',
                     'url1' => 'string|max:200',
                     'url2' => 'string|max:200',
                     'url3' => 'string|max:200',
-                    'tag1' => 'string|max:10',
-                    'tag2' => 'string|max:10',
-                    'tag3' => 'string|max:10',
-                    'tag4' => 'string|max:10',
-                    'tag5' => 'string|max:10',
+                    'tag1' => 'string|max:20',
+                    'tag2' => 'string|max:20',
+                    'tag3' => 'string|max:20',
+                    'tag4' => 'string|max:20',
+                    'tag5' => 'string|max:20',
                     'questionData' => '|string',
                 ]);
             } catch (ValidationException $e) {
@@ -156,16 +148,16 @@ class QuizController extends Controller {
                 $validatedData = $request->validate([
                     'quiz_id' => 'required|string',
                     'quiz_name' => 'required|string|max:30',
-                    'quiz_sub_name' => 'string|max:30',
+                    'quiz_sub_name' => 'string|max:20',
                     'description' => 'required|string|max:100',
                     'url1' => 'string|max:200',
                     'url2' => 'string|max:200',
                     'url3' => 'string|max:200',
-                    'tag1' => 'string|max:10',
-                    'tag2' => 'string|max:10',
-                    'tag3' => 'string|max:10',
-                    'tag4' => 'string|max:10',
-                    'tag5' => 'string|max:10',
+                    'tag1' => 'string|max:20',
+                    'tag2' => 'string|max:20',
+                    'tag3' => 'string|max:20',
+                    'tag4' => 'string|max:20',
+                    'tag5' => 'string|max:20',
                     'questionData' => 'required|string',
                 ]);
             } catch (ValidationException $e) {
@@ -374,34 +366,36 @@ class QuizController extends Controller {
             $flg = DB::table('plays')->where('quiz_id', $request->quiz_id)->delete();
         }
         
-        //問題数が変わった場合、それまでのカードを削除
-        if ($curQuizCount != count($questionList)) {
-            $foo_files = glob("../storage/app/public/card/card_" . $request->quiz_id . "_*");
-            foreach ($foo_files as $filePath) {
-                unlink($filePath);
-            }
-        }
+        return response()->json(['status' => Consts::API_SUCCESS]);
+        
+        // //問題数が変わった場合、それまでのカードを削除
+        // if ($curQuizCount != count($questionList)) {
+        //     $foo_files = glob("../storage/app/public/card/card_" . $request->quiz_id . "_*");
+        //     foreach ($foo_files as $filePath) {
+        //         unlink($filePath);
+        //     }
+        // }
 
-        //Twitterカード更新
-        // base64デコード
-        $base64data = $request->card;
-        if ($base64data != "") {
-            $data = base64_decode($base64data);
+        // //Twitterカード更新
+        // // base64デコード
+        // $base64data = $request->card;
+        // if ($base64data != "") {
+        //     $data = base64_decode($base64data);
 
-            // finfo_bufferでMIMEタイプを取得
-            $finfo = finfo_open(FILEINFO_MIME_TYPE);
-            $mime_type = finfo_buffer($finfo, $data);
+        //     // finfo_bufferでMIMEタイプを取得
+        //     $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        //     $mime_type = finfo_buffer($finfo, $data);
     
-            //MIMEタイプから拡張子を選択してファイル名を作成
-            $filename = '../storage/app/public/card/card_' . $request->quiz_id . '.jpg';
+        //     //MIMEタイプから拡張子を選択してファイル名を作成
+        //     $filename = '../storage/app/public/card/card_' . $request->quiz_id . '.jpg';
     
-            // 画像ファイルの保存
-            file_put_contents($filename, $data);
+        //     // 画像ファイルの保存
+        //     file_put_contents($filename, $data);
     
-            return response()->json(['status' => Consts::API_SUCCESS]);
-        } else {
-            return response()->json(['status' => Consts::API_SUCCESS]);
-        }
+        //     return response()->json(['status' => Consts::API_SUCCESS]);
+        // } else {
+        //     return response()->json(['status' => Consts::API_SUCCESS]);
+        // }
     }
 
     public function getScoreData (Request $request): JsonResponse {
@@ -663,9 +657,10 @@ class QuizController extends Controller {
     }
 
     //
-    //投稿一覧取得
+    //投稿一覧取得（初期表示用）
     //
     public function getQuizList(Request $request): JsonResponse {
+        $page = $request->page;
         $order = $request->order;
         $keyword = "";
         
@@ -721,7 +716,14 @@ class QuizController extends Controller {
             $query->orderBy('challenge_count', 'desc');
             $query->orderBy('created_at', 'desc');
         }
-        $quizList = $query->get();
+        
+        //取得件数を指定
+        $quizList = $query->skip($page * 20)->take(20)->get();
+
+        //追加取得の場合
+        if ($page != 0) {
+            return response()->json(['status' => Consts::API_SUCCESS, 'quizList' => $quizList, 'isLogin' => $this->retIsLogin()]);
+        }
 
         //タグ一覧を取得
         $getTagList = DB::table('tags')->selectRaw('count(tag) as count, tag')
@@ -931,7 +933,7 @@ class QuizController extends Controller {
             $mime_type = finfo_buffer($finfo, $data);
             
             //MIMEタイプから拡張子を選択してファイル名を作成
-            $filename = '../storage/app/public/card/card_' . $request->quiz_id . '_' . $scoreData . '.jpg';
+            $filename = '../storage/app/public/card/card_' . $request->quizId . '_' . $scoreData . '.jpg';
     
             // 画像ファイルの保存
             file_put_contents($filename, $data);
