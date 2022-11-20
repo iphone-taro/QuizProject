@@ -50,12 +50,20 @@ class QuizController extends Controller {
                         if (file_exists('../storage/app/public/card/card_' . $quizId . '_' . $result . '.jpg')) {
                             //結果画像ある
                             $card = 'card_' . $quizId . '_' . $result . '.jpg';
+                        } else {
+                            dd("A");
                         }
+                    } else {
+                        dd("AA");
                     }
+                } else {
+                    dd("AAA");
                 }
+            } else {
+                dd("AAAA");
             }
         }
-        // dd($path . "    " . $card);
+        dd($path . "    " . $card);
         return redirect($path, 307)->withInput(['card' => $card]);
     }
 
