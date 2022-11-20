@@ -37,13 +37,7 @@ Route::middleware('auth:sanctum')->group(function () {
 // サーバーでそれを受け取ったらURLを修正し、元の引数を渡してVueを表示が理想
 
 Route::get('/{any}', function (Request $req) {
-    $cardName = "aaaaa";
-    if ($req->old('test') != null) {
-        //特殊カード
-        $cardName = "bbbbb";
-    }
-    // dd($req->old('test'));
-    return view('spa.app')->with('test', $cardName);
+    return view('spa.app')->with('card', "card_base.png");
 })->where('any', '.*');
 // Route::get('/{any}', [QuizController::class, 'baseAction'])->where('any', '.*');
 
