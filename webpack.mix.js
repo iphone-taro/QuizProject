@@ -16,4 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
     ]);
  */
 
-mix.sass('resources/sass/app2.scss', 'public/css');
+mix.sass('resources/sass/app2.scss', 'public/css')
+.options({
+	processCssUrls : false
+});
