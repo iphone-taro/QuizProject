@@ -38,8 +38,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::get('/{any}', function (Request $req) {
     $cardName = "card_base.png";
-    $title = "あなたに関するクイズサイト『わたくぴ』";
-    $description = "あなたに関するクイズを作ってみんなに挑戦してもらおう";
+    $title = "3あなたに関するクイズサイト『わたくぴ』";
+    $description = "3あなたに関するクイズを作ってみんなに挑戦してもらおう";
 
     if ($req->old('card') != null) {
         //特殊カード
