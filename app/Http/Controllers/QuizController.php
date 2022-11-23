@@ -69,7 +69,7 @@ class QuizController extends Controller {
                 }
             }
         }
-        dd($path . "    " . $card . "    " . $title . "    " . $description);
+        // dd($path . "    " . $card . "    " . $title . "    " . $description);
         return redirect($path, 307)->withInput(['card' => $card, 'title' => $title, 'description' => $description]);
     }
 
