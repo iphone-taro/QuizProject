@@ -21,7 +21,7 @@ Route::get('/api/getHotTagList', [QuizController::class, 'getHotTagList']);
 Route::post('/api/getQuizData', [QuizController::class, 'getQuizData']);
 Route::post('/api/updateChallenge', [QuizController::class, 'updateChallenge']);
 
-Route::get('/quiz', [QuizController::class, 'snsQuiz']);
+Route::get('/quiz/{id}/{result}', [QuizController::class, 'snsQuiz']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/api/getEditData', [QuizController::class, 'getEditData']);

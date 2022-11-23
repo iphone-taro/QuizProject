@@ -22,7 +22,7 @@ class QuizController extends Controller {
     //
     // SNSカード　クイズ
     //
-    public function snsQuiz(Request $req) {
+    public function snsQuiz($id, $result) {
 
         $path = "/#/";
         $title = "2あなたに関するクイズサイト2『わたくぴ』";
@@ -31,7 +31,7 @@ class QuizController extends Controller {
 
         if (isset($_GET["quizId"])) {
             //パラメータあり
-            $quizId = $_GET["quizId"];
+            $quizId = $id;
 
             //クイズID照合
             if (mb_strlen($quizId) == 20) {
@@ -55,16 +55,11 @@ class QuizController extends Controller {
                     $description = $quizName . "に関する全" . $questions . "問のクイズ！";
 
                     //結果パラメータ
-                    if (isset($_GET["result"])) {
-                        //結果パラメータあり
-                        $result = $_GET["result"];
-                        
-                        //結果画像データがあるか
-                        if (file_exists('../storage/app/public/card/card_' . $quizId . '_' . $result . '.jpg')) {
-                            //結果画像ある
-                            $card = 'card_' . $quizId . '_' . $result . '.jpg';
-                            $path = $path . "?" . $result;
-                        }
+                    //結果画像データがあるか
+                    if (file_exists('../storage/app/public/card/card_' . $quizId . '_' . $result . '.jpg')) {
+                        //結果画像ある
+                        $card = 'card_' . $quizId . '_' . $result . '.jpg';
+                        $path = $path . "?" . $result;
                     }
                 }
             }
