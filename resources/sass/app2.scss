@@ -222,7 +222,7 @@ input::placeholder, textarea::placeholder {
     content: "";           /* 疑似要素に必須 */
     width: 16px;           /* アイコンの横幅 */
     height: 16px;          /* アイコンの高さ */
-    background: url(../../public/app/img/icon_search.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
+    background: url(../app/img/icon_search.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
     display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
     position: absolute;    /* 相対位置に指定 */
     top: 8px;              /* アイコンの位置。微調整してね */
@@ -260,7 +260,7 @@ input::placeholder, textarea::placeholder {
 	height: $scoreHeight;
     display: inline-block;
     /* cursor:pointer; */
-	background-image: url("../../public/app/img/score_num.png");
+	background-image: url("../app/img/score_num.png");
 	// background-image: url("../img/score_num.png");
 	background-size: ($scoreWidth * 6) ($scoreHeight * 2);
 	background-repeat: no-repeat;
@@ -289,7 +289,7 @@ $playCharaHeight:$playCharaWidth * 0.2;
 	height: $playCharaHeight;
     display: inline-block;
     /* cursor:pointer; */
-	background-image: url("../../public/app/img/play_chara.png");
+	background-image: url("../app/img/play_chara.png");
 	// background-image: url("../img/score_num.png");
 	background-size: ($playCharaWidth) ($playCharaHeight * 5);
 	background-repeat: no-repeat;
@@ -303,16 +303,16 @@ $playCharaHeight:$playCharaWidth * 0.2;
 
 
 .backgroundBase {
-	background-image: url("../../public/app/img/bg_normal.png");
+	background-image: url("../app/img/bg_normal.png");
 	background-repeat: repeat;
 }
 
 .backgroundCorrect {
-	background-image: url("../../public/app/img/bg_correct.png");
+	background-image: url("../app/img/bg_correct.png");
 	background-repeat: repeat;
 }
 
 .backgroundIncorrect {
-	background-image: url("../../public/app/img/bg_incorrect.png");
+	background-image: url("../app/img/bg_incorrect.png");
 	background-repeat: repeat;
 }
