@@ -29,42 +29,40 @@ class QuizController extends Controller {
         $description = "2あなたに関するクイズを作ってみんなに挑戦してもらおう2";
         $card = "card_base.png";
 
-        if (isset($_GET["quizId"])) {
-            //パラメータあり
-            $quizId = $id;
+        //パラメータあり
+        $quizId = $id;
 
-            //クイズID照合
-            if (mb_strlen($quizId) == 20) {
-                //長さOK
-                //DB照合
-                $quizData = DB::table('quizzes as quiz')->where('publishing', 1)->where('quiz.quiz_id', $quizId)->first();
-                
-                if ($quizData != null) {
-                    //データあり
-                    $path = "/#/play/" . $quizId;
+        //クイズID照合
+        if (mb_strlen($quizId) == 20) {
+            //長さOK
+            //DB照合
+            $quizData = DB::table('quizzes as quiz')->where('publishing', 1)->where('quiz.quiz_id', $quizId)->first();
+            
+            if ($quizData != null) {
+                //データあり
+                $path = "/#/play/" . $quizId;
 
-                    $quizName = $quizData->quiz_name;
-                    $quizSubName = $quizData->quiz_sub_name;
-                    $questions = $quizData->questions;
+                $quizName = $quizData->quiz_name;
+                $quizSubName = $quizData->quiz_sub_name;
+                $questions = $quizData->questions;
 
-                    $title = "『" . $quizName . "』のわたくぴ";
-                    if ($quizSubName != "") {
-                        $title = $title . "（" . $quizSubName . "）";
-                    }
-                    $title = $title . "に挑戦しよう";
-                    $description = $quizName . "に関する全" . $questions . "問のクイズ！";
+                $title = "『" . $quizName . "』のわたくぴ";
+                if ($quizSubName != "") {
+                    $title = $title . "（" . $quizSubName . "）";
+                }
+                $title = $title . "に挑戦しよう";
+                $description = $quizName . "に関する全" . $questions . "問のクイズ！";
 
-                    //結果パラメータ
-                    //結果画像データがあるか
-                    if (file_exists('../storage/app/public/card/card_' . $quizId . '_' . $result . '.jpg')) {
-                        //結果画像ある
-                        $card = 'card_' . $quizId . '_' . $result . '.jpg';
-                        $path = $path . "?" . $result;
-                    }
+                //結果パラメータ
+                //結果画像データがあるか
+                if (file_exists('../storage/app/public/card/card_' . $quizId . '_' . $result . '.jpg')) {
+                    //結果画像ある
+                    $card = 'card_' . $quizId . '_' . $result . '.jpg';
+                    $path = $path . "?" . $result;
                 }
             }
         }
-        // dd($path . "    " . $card . "    " . $title . "    " . $description);
+        dd($path . "    " . $card . "    " . $title . "    " . $description);
         return redirect($path, 307)->withInput(['card' => $card, 'title' => $title, 'description' => $description]);
     }
 
