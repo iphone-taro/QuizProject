@@ -25,8 +25,8 @@ class QuizController extends Controller {
     public function snsQuiz(Request $req) {
 
         $path = "/#/";
-        $title = "あなたに関するクイズサイト『わたくぴ』";
-        $description = "あなたに関するクイズを作ってみんなに挑戦してもらおう";
+        $title = "2あなたに関するクイズサイト2『わたくぴ』";
+        $description = "2あなたに関するクイズを作ってみんなに挑戦してもらおう2";
         $card = "card_base.png";
 
         if (isset($_GET["quizId"])) {
