@@ -38,12 +38,17 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::get('/{any}', function (Request $req) {
     $cardName = "card_base.png";
+    $title = "あなたに関するクイズサイト『わたくぴ』";
+    $description = "あなたに関するクイズを作ってみんなに挑戦してもらおう";
+
     if ($req->old('card') != null) {
         //特殊カード
         $cardName = $req->old('card');
+        $title = $req->old('title');
+        $description = $req->old('description');
     }
     // dd($req->old('test'));
-    return view('spa.app')->with('card', $cardName);
+    return view('spa.app')->with(['card' => $cardName, 'title' => $title, 'description' => $description]);
 })->where('any', '.*');
 // Route::get('/{any}', [QuizController::class, 'baseAction'])->where('any', '.*');
 

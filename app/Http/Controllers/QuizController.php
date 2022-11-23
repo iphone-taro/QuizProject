@@ -25,6 +25,8 @@ class QuizController extends Controller {
     public function snsQuiz(Request $req) {
 
         $path = "/#/";
+        $title = "あなたに関するクイズサイト『わたくぴ』";
+        $description = "あなたに関するクイズを作ってみんなに挑戦してもらおう";
         $card = "card_base.png";
 
         if (isset($_GET["quizId"])) {
@@ -36,10 +38,21 @@ class QuizController extends Controller {
                 //長さOK
                 //DB照合
                 $quizData = DB::table('quizzes as quiz')->where('publishing', 1)->where('quiz.quiz_id', $quizId)->first();
-
+                
                 if ($quizData != null) {
                     //データあり
                     $path = "/#/play/" . $quizId;
+
+                    $quizName = $quizData->quiz_name;
+                    $quizSubName = $quizData->quiz_sub_name;
+                    $questions = $quizData->questions;
+
+                    $title = "『" . $quizName . "』のわたくぴ";
+                    if ($quizSubName != "") {
+                        $title = $title . "（" . $quizSubName . "）";
+                    }
+                    $title = $title . "に挑戦しよう";
+                    $description = $quizName . "に関する全" . $questions . "問のクイズ！";
 
                     //結果パラメータ
                     if (isset($_GET["result"])) {
@@ -57,7 +70,7 @@ class QuizController extends Controller {
             }
         }
         // dd($path . "    " . $card);
-        return redirect($path, 307)->withInput(['card' => $card]);
+        return redirect($path, 307)->withInput(['card' => $card, 'title' => $title, 'description' => $description]);
     }
 
     public function baseAction(Request $req) {
@@ -761,8 +774,7 @@ class QuizController extends Controller {
         $twitterId = $request->twitterId;
 
         if ($userData == null) {
-            //データがない場合、新規作成
-
+            //データがない場合
             //ログインボタンの場合は戻す
             if ($request->kbn == "LOGIN") {
                 return response()->json(['status' => Consts::API_FAILED_NODATA]);
