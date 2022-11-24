@@ -63,7 +63,8 @@ class QuizController extends Controller {
             }
         }
         // dd($path . "    " . $card . "    " . $title . "    " . $description);
-        return redirect($path, 307)->withInput(['card' => $card, 'title' => $title, 'description' => $description]);
+        // return redirect($path, 307)->withInput(['card' => $card, 'title' => $title, 'description' => $description]);
+        return view('spa.app')->with(['card' => $card, 'title' => $title, 'description' => $description]);
     }
 
     public function baseAction(Request $req) {
