@@ -22,8 +22,7 @@ class QuizController extends Controller {
     //
     // SNSカード　クイズ
     //
-    public function snsQuiz($id, $result) {
-        $path = "/#/";
+    public function snsQuiz($id) {
         $title = "2あなたに関するクイズサイト2『わたくぴ』";
         $description = "2あなたに関するクイズを作ってみんなに挑戦してもらおう2";
         $card = "card_base.png";
@@ -39,8 +38,6 @@ class QuizController extends Controller {
             
             if ($quizData != null) {
                 //データあり
-                $path = "/#/play/" . $quizId;
-
                 $quizName = $quizData->quiz_name;
                 $quizSubName = $quizData->quiz_sub_name;
                 $questions = $quizData->questions;
@@ -53,19 +50,22 @@ class QuizController extends Controller {
                 $description = $quizName . "に関する全" . $questions . "問のクイズ！";
 
                 //結果パラメータ
-                //結果画像データがあるか
-                if (file_exists('../storage/app/public/card/card_' . $quizId . '_' . $result . '.jpg')) {
-                    //結果画像ある
-                    $card = 'card_' . $quizId . '_' . $result . '.jpg';
-                    $path = $path . "?" . $result;
+                if (isset($_REQUEST["result"])) {
+                    $result = $_REQUEST["result"];
+
+                    //結果画像データがあるか
+                    if (file_exists('../storage/app/public/card/card_' . $quizId . '_' . $result . '.jpg')) {
+                        //結果画像ある
+                        $card = 'card_' . $quizId . '_' . $result . '.jpg';
+                    }
                 }
             }
         }
         // dd($path . "    " . $card . "    " . $title . "    " . $description);
         $header = ['card' => $card, 'title' => $title, 'description' => $description];
-        return redirect($path, 302, ["aaaaaaaa" => "BBBBBBBBB"], true)->withInput(['aaa' => 'a1'])->with(['bbb' => 'b1']);
+        // return redirect($path, 302, ["aaaaaaaa" => "BBBBBBBBB"], false)->withInput(['aaa' => 'a1'])->with(['bbb' => 'b1']);
         // dd(redirect($path, 302, ["aaaaaaaa" => "BBBBBBBBB"], false));
-        // return view('spa.app')->with(['card' => $card, 'title' => $title, 'description' => $description]);
+        return view('spa.app')->with(['card' => $card, 'title' => $title, 'description' => $description]);
     }
 
     public function baseAction(Request $req) {
