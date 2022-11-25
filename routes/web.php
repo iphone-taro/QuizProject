@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizController;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,18 +39,23 @@ Route::middleware('auth:sanctum')->group(function () {
 // サーバーでそれを受け取ったらURLを修正し、元の引数を渡してVueを表示が理想
 
 Route::get('/{any}', function (Request $req) {
+    // dd($req->fullUrl() . " " . $req->url());
+    // dd($req->old("abc"));
+
     $cardName = "card_base.png";
     $title = "3あなたに関するクイズサイト『わたくぴ』";
     $description = "3あなたに関するクイズを作ってみんなに挑戦してもらおう";
 
-    if ($req->old('card') != null) {
-        //特殊カード
-        $cardName = $req->old('card');
-        $title = $req->old('title');
-        $description = $req->old('description');
-    }
+    $title = $req->old("abc");
+    // if ($req->hasHeader('card') != null) {
+    //     //特殊カード
+    //     $cardName = $res->header('card');
+    //     $title = $res->header('title');
+    //     $description = $res->header('description');
+    // }
     // dd($req->old('test'));
     return view('spa.app')->with(['card' => $cardName, 'title' => $title, 'description' => $description]);
+    // dd(view('spa.app')->with(['card' => $cardName, 'title' => $title, 'description' => $description]));
 })->where('any', '.*');
 // Route::get('/{any}', [QuizController::class, 'baseAction'])->where('any', '.*');
 

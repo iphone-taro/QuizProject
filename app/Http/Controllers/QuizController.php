@@ -23,7 +23,6 @@ class QuizController extends Controller {
     // SNSカード　クイズ
     //
     public function snsQuiz($id, $result) {
-
         $path = "/#/";
         $title = "2あなたに関するクイズサイト2『わたくぴ』";
         $description = "2あなたに関するクイズを作ってみんなに挑戦してもらおう2";
@@ -63,8 +62,10 @@ class QuizController extends Controller {
             }
         }
         // dd($path . "    " . $card . "    " . $title . "    " . $description);
-        // return redirect($path, 307)->withInput(['card' => $card, 'title' => $title, 'description' => $description]);
-        return view('spa.app')->with(['card' => $card, 'title' => $title, 'description' => $description]);
+        $header = ['card' => $card, 'title' => $title, 'description' => $description];
+        return redirect($path, 302, ["aaaaaaaa" => "BBBBBBBBB"], false)->withInput(['abc' => 'def']);
+        // dd(redirect($path, 302, ["aaaaaaaa" => "BBBBBBBBB"], false));
+        // return view('spa.app')->with(['card' => $card, 'title' => $title, 'description' => $description]);
     }
 
     public function baseAction(Request $req) {
