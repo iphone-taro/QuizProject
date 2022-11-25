@@ -40,13 +40,23 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::get('/{any}', function (Request $req) {
     // dd($req->fullUrl() . " " . $req->url());
-    // dd($req->old("abc"));
+    // dd($req);
 
     $cardName = "card_base.png";
     $title = "3あなたに関するクイズサイト『わたくぴ』";
     $description = "3あなたに関するクイズを作ってみんなに挑戦してもらおう";
 
-    $title = $req->old("abc");
+    $title = "";
+    $a = "0";
+    if ($req->old("aaa") != null) {
+        $a = "1";
+    }
+    $b = "-00";
+    if ($req->session()->get('bbb') != null) {
+        $b = "-11";
+    }
+
+    $title = $a . $b;
     // if ($req->hasHeader('card') != null) {
     //     //特殊カード
     //     $cardName = $res->header('card');

@@ -63,7 +63,7 @@ class QuizController extends Controller {
         }
         // dd($path . "    " . $card . "    " . $title . "    " . $description);
         $header = ['card' => $card, 'title' => $title, 'description' => $description];
-        return redirect($path, 302, ["aaaaaaaa" => "BBBBBBBBB"], true)->withInput(['abc' => 'def']);
+        return redirect($path, 302, ["aaaaaaaa" => "BBBBBBBBB"], true)->withInput(['aaa' => 'a1'])->with(['bbb' => 'b1']);
         // dd(redirect($path, 302, ["aaaaaaaa" => "BBBBBBBBB"], false));
         // return view('spa.app')->with(['card' => $card, 'title' => $title, 'description' => $description]);
     }
